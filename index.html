@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light" />
+<link rel="icon" href="data:," />
+<title>ドキドキっ♡はっかーずらぶ！【ドリミ二次創作】</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Shippori+Mincho+B1:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff; --paper2:#eaf7ff; --ink:#2b3a4a; --ink-soft:#6b7f92;
+  --line:#c8e6f5; --accent:#3a9ad9; --accent-soft:#d9f1ff;
+  --sage:#7d9b76; --sky:#8fd3f4; --sky-deep:#5db9e8; --danger:#e83a3a; --warn:#f5a623;
+  --good:#5d8a68; --card:#ffffff;
+  --radius:20px;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN",system-ui,sans-serif;
+  background:#aee6ff;
+  color:var(--ink); min-height:100dvh;
+}
+button{font-family:inherit; cursor:pointer; min-height:44px}
+.wrap{max-width:1060px;margin:0 auto;padding:12px 12px 20px;display:flex;flex-direction:column;min-height:100dvh}
+/* portrait: water-blue dreamy sky with fluffy clouds */
+@media (orientation: portrait){
+  body{
+    background:
+      radial-gradient(90px 36px at 12% 12%, rgba(255,255,255,.95) 98%, transparent),
+      radial-gradient(120px 44px at 78% 8%, rgba(255,255,255,.9) 98%, transparent),
+      radial-gradient(100px 38px at 88% 22%, rgba(255,255,255,.75) 98%, transparent),
+      radial-gradient(110px 40px at 6% 30%, rgba(255,255,255,.65) 98%, transparent),
+      linear-gradient(180deg,#7ecdf5 0%, #aee6ff 42%, #d6f3ff 78%, #eaf9ff 100%);
+    background-attachment:fixed;
+  }
+}
+@media (orientation: landscape){
+  body{
+    background:
+      radial-gradient(120px 44px at 85% 10%, rgba(255,255,255,.85) 98%, transparent),
+      radial-gradient(90px 34px at 8% 14%, rgba(255,255,255,.8) 98%, transparent),
+      linear-gradient(180deg,#8fd3f4 0%, #bdeaff 55%, #e2f6ff 100%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;padding:8px 10px 10px}
+}
+
+/* ---------- header / gauge ---------- */
+.topbar{
+  display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; margin-bottom:12px;
+}
+.title-chip{
+  background:rgba(255,255,255,.94); border:2px solid #fff; border-radius:22px;
+  padding:10px 16px; flex:1 1 220px; display:flex; flex-direction:column; justify-content:center;
+  box-shadow:0 6px 18px rgba(70,150,200,.18), inset 0 0 0 1px var(--line);
+}
+.title-chip h1{
+  font-family:"M PLUS Rounded 1c",sans-serif; font-weight:800; font-size:20px; margin:0; letter-spacing:.04em; line-height:1.25; color:#1f6fa8;
+}
+.title-chip p{margin:3px 0 0; font-size:12px; color:var(--ink-soft); line-height:1.5; font-weight:500}
+.gauge-box{
+  background:rgba(255,255,255,.94); border:2px solid #fff; border-radius:22px;
+  padding:10px 14px 10px 10px; flex:2 1 320px; display:flex; gap:12px; align-items:center;
+  box-shadow:0 6px 18px rgba(70,150,200,.18), inset 0 0 0 1px var(--line);
+}
+.gauge-main{flex:1; min-width:0}
+.gauge-head{display:flex; justify-content:space-between; align-items:baseline; gap:8px; flex-wrap:wrap}
+.gauge-head .g-label{font-weight:800; font-size:13px; letter-spacing:.03em; color:#1f6fa8}
+.gauge-head .g-label small{font-weight:500; color:var(--ink-soft)}
+.gauge-head .g-num{font-weight:800; font-size:13px; font-variant-numeric:tabular-nums; color:#1f6fa8}
+.gauge-track{display:none}
+.gauge-box.danger{animation:pulse-border 1.1s ease-in-out infinite}
+@keyframes pulse-border{0%,100%{box-shadow:0 6px 18px rgba(70,150,200,.18),0 0 0 0 rgba(232,58,58,0)}50%{box-shadow:0 6px 18px rgba(70,150,200,.18),0 0 0 5px rgba(232,58,58,.22)}}
+.gauge-note{margin:6px 0 0; font-size:11.5px; color:var(--ink-soft); line-height:1.55; font-weight:500}
+.gauge-note b{color:var(--danger)}
+/* --- fluffy cloud heart gauge --- */
+.heart-gauge{position:relative; width:96px; height:92px; flex:0 0 96px; display:grid; place-items:center}
+.heart-cloud-puffs{position:absolute; inset:0; pointer-events:none}
+.heart-cloud-puffs i{position:absolute; background:#fff; border-radius:50%; box-shadow:0 3px 10px rgba(120,190,230,.28)}
+.heart-cloud-puffs i:nth-child(1){width:34px;height:34px;left:2px;top:22px}
+.heart-cloud-puffs i:nth-child(2){width:28px;height:28px;left:14px;top:6px}
+.heart-cloud-puffs i:nth-child(3){width:30px;height:30px;right:12px;top:4px}
+.heart-cloud-puffs i:nth-child(4){width:34px;height:34px;right:0;top:22px}
+.heart-cloud-puffs i:nth-child(5){width:26px;height:26px;left:18px;bottom:2px}
+.heart-cloud-puffs i:nth-child(6){width:26px;height:26px;right:18px;bottom:2px}
+.heart-gauge svg{position:relative; z-index:1; width:78px; height:72px; overflow:visible; filter:drop-shadow(0 4px 8px rgba(90,160,210,.30))}
+.heart-pct{position:absolute; z-index:2; bottom:16px; left:50%; transform:translateX(-50%); font-size:11px; font-weight:800; color:#fff; text-shadow:0 1px 4px rgba(0,0,0,.35); pointer-events:none; letter-spacing:.02em}
+#heartFillRect{transition:y .7s cubic-bezier(.22,1,.36,1), height .7s cubic-bezier(.22,1,.36,1)}
+.scene-chip{
+  display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+}
+.pill{
+  background:rgba(255,255,255,.92); border:1.5px solid #fff; border-radius:999px;
+  padding:7px 12px; font-size:12px; font-weight:700; white-space:nowrap; box-shadow:inset 0 0 0 1px var(--line);
+}
+.pill b{color:var(--accent)}
+
+/* ---------- stage ---------- */
+.stage{
+  position:relative; border-radius:24px; overflow:hidden;
+  border:3px solid #fff; background:#dcebf3;
+  min-height:520px; display:flex; flex-direction:column; flex:1;
+  box-shadow:0 14px 32px rgba(50,130,185,.28), inset 0 0 0 1px var(--line);
+}
+.scene{position:absolute; inset:0; opacity:0; transition:opacity .6s ease; pointer-events:none}
+.scene.active{opacity:1}
+.scene svg{width:100%; height:100%; display:block}
+.place-tag{
+  position:absolute; top:12px; left:12px; z-index:5;
+  background:rgba(255,253,248,.92); border:1px solid var(--line);
+  padding:7px 12px; border-radius:999px; font-size:12px; font-weight:900; letter-spacing:.05em;
+}
+.place-tag small{color:var(--ink-soft); font-weight:700; margin-left:6px}
+
+/* delta popup */
+.delta-pop{
+  position:absolute; top:64px; right:14px; z-index:8;
+  background:#fff5f2; border:2px solid #fff; color:var(--danger);
+  font-weight:800; font-size:14px; padding:9px 14px; border-radius:999px;
+  opacity:0; transform:translateY(-6px); pointer-events:none; max-width:78%;
+  box-shadow:0 4px 14px rgba(200,60,60,.25), inset 0 0 0 1px #ffc9c9;
+}
+.delta-pop.show{animation:popfade 2.4s ease forwards}
+.delta-pop.good{border-color:var(--good); color:var(--good); background:#f2f8f1}
+@keyframes popfade{0%{opacity:0;transform:translateY(-6px)}12%{opacity:1;transform:translateY(0)}78%{opacity:1}100%{opacity:0;transform:translateY(-4px)}}
+
+/* ---------- textbox ---------- */
+.stage.locked .textbox{display:none}
+.textbox{
+  position:absolute; left:12px; right:12px; bottom:12px; z-index:6;
+  background:rgba(255,255,255,.96); border:2px solid #fff; border-radius:22px;
+  padding:14px 18px 12px; min-height:158px; display:flex; flex-direction:column;
+  box-shadow:0 8px 22px rgba(40,110,165,.22), inset 0 0 0 1px var(--line);
+}
+.nameplate{
+  align-self:flex-start; margin-top:-27px; margin-bottom:6px;
+  background:#5db9e8; color:#fff; font-weight:800; font-size:13px;
+  padding:6px 16px; border-radius:999px; letter-spacing:.04em; border:2px solid #fff; box-shadow:0 3px 8px rgba(60,140,195,.3);
+}
+.nameplate.shigure{background:#5db9e8}
+.nameplate.kusakabe{background:#7fc8a9}
+.nameplate.mono{background:#9db8c9}
+.text-body{
+  font-size:16.5px; line-height:1.85; margin:0; flex:1; white-space:pre-wrap; word-break:break-word; font-weight:500;
+}
+.text-body.mono{color:#46505b; font-size:15.5px}
+.caret-row{display:flex; justify-content:space-between; align-items:center; margin-top:6px; min-height:22px}
+.tap-hint{font-size:11.5px; color:var(--ink-soft)}
+.next-arrow{font-weight:900; color:var(--accent); animation:bob 1s ease-in-out infinite; font-size:15px}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+@media (prefers-reduced-motion: reduce){ .next-arrow,.gauge-box.danger{animation:none} }
+
+/* ---------- choices ---------- */
+.choices{
+  position:absolute; inset:0; z-index:9; display:none;
+  align-items:center; justify-content:center; padding:18px;
+  background:linear-gradient(180deg, rgba(38,48,59,.28), rgba(38,48,59,.42));
+}
+.choices.open{display:flex}
+.choice-card{
+  background:rgba(255,255,255,.98); border-radius:26px; border:3px solid #fff;
+  max-width:620px; width:100%; padding:20px; box-shadow:0 16px 36px rgba(30,100,155,.35), inset 0 0 0 1px var(--line);
+}
+.choice-card h2{font-family:"M PLUS Rounded 1c",sans-serif; font-weight:800; margin:0 0 12px; font-size:18px; color:#1f6fa8; text-align:center}
+.choice-card .q{display:none}
+.choice-btn{
+  display:block; width:100%; text-align:center; margin-top:12px;
+  background:linear-gradient(180deg,#ffffff,#eaf7ff); border:2px solid var(--line); border-radius:999px;
+  padding:14px 18px; font-size:15px; font-weight:700; line-height:1.6; color:var(--ink);
+  box-shadow:0 4px 12px rgba(80,160,215,.16);
+}
+.choice-btn:hover,.choice-btn:focus-visible{border-color:var(--sky-deep); background:linear-gradient(180deg,#ffffff,#d6f1ff); outline:none}
+.choice-btn .cb-sub,.choice-btn .cb-tag{display:none}
+
+/* ---------- controls ---------- */
+.controls{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+.ctl-btn{
+  background:rgba(255,255,255,.94); border:1.5px solid #fff; border-radius:999px;
+  padding:9px 16px; font-size:13px; font-weight:700; color:var(--ink); box-shadow:inset 0 0 0 1px var(--line);
+}
+.ctl-btn:hover{border-color:var(--accent)}
+.ctl-btn.primary{background:var(--sky-deep); color:#fff; border-color:#fff}
+.ctl-btn.bgm-btn{background:#fff0f6; border-color:#fff; color:#c2437e; font-weight:800}
+.ctl-btn.bgm-btn.is-on{background:linear-gradient(180deg,#ff9ec6,#ff6fae); color:#fff; border-color:#fff; box-shadow:0 4px 12px rgba(255,111,174,.35), inset 0 0 0 1px #ffd3e6}
+.ctl-btn.bgm-btn .bgm-note{display:inline-block}
+.ctl-btn.bgm-btn.is-on .bgm-note{animation:bgm-bounce 0.9s ease-in-out infinite}
+@keyframes bgm-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@media (prefers-reduced-motion: reduce){ .ctl-btn.bgm-btn.is-on .bgm-note{animation:none} }
+
+/* ---------- overlays: title / ending / modal ---------- */
+.overlay{
+  position:absolute; inset:0; z-index:20; display:none; overflow:auto;
+  background:linear-gradient(180deg, rgba(214,243,255,.97), rgba(234,249,255,.98));
+  padding:26px 20px;
+}
+.overlay.open{display:block}
+.ov-inner{max-width:640px; margin:0 auto}
+.ov-kicker{font-size:12px; font-weight:800; letter-spacing:.1em; color:var(--accent); margin:0 0 6px}
+.ov-title{font-family:"M PLUS Rounded 1c",sans-serif; font-weight:800; font-size:clamp(26px,6vw,38px); margin:0 0 8px; line-height:1.35; color:#1f6fa8}
+.ov-lede{font-size:14.5px; line-height:1.9; color:#3c4650; margin:0 0 16px; font-weight:500}
+.ov-card{background:#fff; border:2px solid #fff; border-radius:20px; padding:14px 16px; margin-bottom:12px; box-shadow:inset 0 0 0 1px var(--line)}
+.ov-card h3{margin:0 0 8px; font-size:14px}
+.ov-card p,.ov-card li{font-size:13.5px; line-height:1.8; color:#3c4650}
+.ov-card ul{margin:0; padding-left:18px}
+.big-btn{
+  display:block; width:100%; background:linear-gradient(180deg,#6ec3f7,#3a9ad9); color:#fff; border:2px solid #fff;
+  border-radius:999px; padding:15px; font-size:16px; font-weight:800; letter-spacing:.04em; margin-top:14px; box-shadow:0 6px 16px rgba(58,154,217,.35);
+}
+.big-btn:hover{background:linear-gradient(180deg,#5db9e8,#2f8fc9)}
+.ghost-btn{
+  display:block; width:100%; background:rgba(255,255,255,.85); color:var(--ink); border:2px solid var(--line);
+  border-radius:999px; padding:13px; font-size:14px; font-weight:700; margin-top:9px;
+}
+.end-slots{display:flex; gap:8px; flex-wrap:wrap}
+.end-slot{
+  flex:1 1 150px; border:1.5px dashed var(--line); border-radius:16px; padding:10px 12px;
+  font-size:12.5px; font-weight:700; color:var(--ink-soft); background:#fffdf8;
+}
+.end-slot.got{border-style:solid; border-color:var(--sage); color:var(--ink); background:#f2f7ef}
+.end-slot .es-name{display:block; font-size:13.5px; font-weight:900; margin-top:2px}
+.end-badge{
+  display:inline-block; font-weight:900; font-size:13px; letter-spacing:.1em;
+  padding:7px 14px; border-radius:999px; margin-bottom:10px; color:#fff;
+}
+.end-badge.bad{background:var(--danger)} .end-badge.true{background:#476b57} .end-badge.normal{background:#8a5a34}
+.end-title{font-family:"M PLUS Rounded 1c",sans-serif; font-weight:800; font-size:clamp(24px,5vw,34px); margin:0 0 10px; line-height:1.35; color:#1f6fa8}
+.end-text{font-size:14.5px; line-height:2; color:#333d47; white-space:pre-wrap}
+.stat-row{display:flex; gap:8px; flex-wrap:wrap; margin:14px 0}
+.stat{background:#fff; border:1px solid var(--line); border-radius:12px; padding:9px 13px; font-size:13px; font-weight:700}
+.stat b{color:var(--accent)}
+
+/* backlog modal */
+.modal{
+  position:fixed; inset:0; z-index:50; display:none; background:rgba(38,48,59,.5);
+  align-items:flex-end; justify-content:center; padding:0;
+}
+.modal.open{display:flex}
+.modal-sheet{
+  background:var(--paper); width:100%; max-width:760px; max-height:82dvh; overflow:auto;
+  border-radius:20px 20px 0 0; padding:20px;
+}
+.modal-sheet h2{font-family:"M PLUS Rounded 1c",sans-serif; font-weight:800; margin:0 0 12px; font-size:20px; color:#1f6fa8}
+.log-item{border-bottom:1px solid var(--line); padding:9px 0}
+.log-item .who{font-size:11.5px; font-weight:900; color:var(--accent); letter-spacing:.05em}
+.log-item .what{font-size:14px; line-height:1.75; margin-top:2px; white-space:pre-wrap}
+.foot-note{font-size:11.5px; color:#4a6b84; line-height:1.7; margin-top:12px; text-align:center; font-weight:500}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+/* ---------- portrait ---------- */
+@media (orientation: portrait){
+  .topbar{flex-direction:column}
+  .stage{min-height:0; height:62dvh; flex:none}
+  .textbox{min-height:150px}
+  .heart-gauge{width:88px;height:84px;flex-basis:88px}
+  .heart-gauge svg{width:72px;height:66px}
+}
+/* ---------- landscape: fully playable ---------- */
+@media (orientation: landscape){
+  .wrap{height:100dvh; min-height:0}
+  .topbar{flex-wrap:nowrap; margin-bottom:6px; gap:8px}
+  .title-chip{flex:0 1 300px; padding:7px 12px}
+  .title-chip h1{font-size:16px}
+  .title-chip p{font-size:11px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+  .gauge-box{flex:1 1 auto; padding:6px 12px 6px 6px}
+  .heart-gauge{width:64px;height:60px;flex-basis:64px}
+  .heart-gauge svg{width:52px;height:48px}
+  .heart-pct{bottom:9px;font-size:9px}
+  .gauge-note{font-size:10.5px; margin-top:2px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+  .scene-chip{margin-bottom:6px !important}
+  .pill{padding:5px 10px; font-size:11px}
+  .stage{min-height:0; flex:1}
+  .textbox{left:10px;right:10px;bottom:10px; min-height:112px; padding:10px 14px 8px}
+  .text-body{font-size:15px; line-height:1.7}
+  .text-body.mono{font-size:14px}
+  .controls{margin-top:8px}
+  .ctl-btn{padding:7px 13px; min-height:38px}
+  .foot-note{display:none}
+  .overlay{padding:16px}
+  .choice-card{max-width:680px; padding:14px 18px}
+  .choice-btn{margin-top:8px; padding:11px 16px}
+}
+@media (orientation: landscape) and (max-height:480px){
+  .title-chip p{display:none}
+  .gauge-note{display:none}
+  .scene-chip{display:none}
+  .textbox{min-height:96px}
+  .text-body{font-size:14px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- gauge header -->
+  <div class="topbar">
+    <div class="title-chip">
+      <h1 style="font-size:17px">ドキドキっ♡はっかーずらぶ！</h1>
+      <p>【ドリミ二次創作】告白の返事待ち、デリカシーゼロ問答ラブコメ。</p>
+    </div>
+    <div class="gauge-box" id="gaugeBox">
+      <div class="heart-gauge" aria-hidden="true">
+        <div class="heart-cloud-puffs"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <svg viewBox="0 0 100 92" role="img" aria-label="気遣いゲージ（ハート）">
+          <defs>
+            <clipPath id="heartClip"><path d="M50 84 C20 62 6 44 6 28 C6 13 17 4 30 4 C40 4 47 9 50 16 C53 9 60 4 70 4 C83 4 94 13 94 28 C94 44 80 62 50 84 Z"/></clipPath>
+            <linearGradient id="heartGrad" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%" stop-color="#ffe259"/><stop offset="38%" stop-color="#ffd23f"/>
+              <stop offset="68%" stop-color="#ff8a3d"/><stop offset="100%" stop-color="#ff2e2e"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 84 C20 62 6 44 6 28 C6 13 17 4 30 4 C40 4 47 9 50 16 C53 9 60 4 70 4 C83 4 94 13 94 28 C94 44 80 62 50 84 Z" fill="#ffffff"/>
+          <g clip-path="url(#heartClip)"><rect id="heartFillRect" x="0" y="92" width="100" height="0" fill="url(#heartGrad)"/></g>
+          <path d="M50 84 C20 62 6 44 6 28 C6 13 17 4 30 4 C40 4 47 9 50 16 C53 9 60 4 70 4 C83 4 94 13 94 28 C94 44 80 62 50 84 Z" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
+        </svg>
+        <span class="heart-pct" id="heartPct"></span>
+      </div>
+      <div class="gauge-main">
+        <div class="gauge-head">
+          <span class="g-label">時雨の気遣いゲージ <small>／ 気を遣わせるほど溜まります</small></span>
+          <span class="g-num" id="gaugeNum">0 / 100</span>
+        </div>
+        <p class="gauge-note" id="gaugeNote">時雨は今、自然に微笑んでいます。このまま彼の本音を引き出せるでしょうか。</p>
+      </div>
+    </div>
+  </div>
+  <div class="scene-chip" style="margin-bottom:12px">
+    <span class="pill">場面：<b id="sceneName">タイトル</b></span>
+    <span class="pill">選択：<b id="choiceCount">0 / 5</b></span>
+    <span class="pill">到達END：<b id="endCount">0 / 3</b></span>
+  </div>
+
+  <!-- stage -->
+  <div class="stage locked" id="stage">
+
+    <!-- ===== backgrounds (SVG scenes) ===== -->
+    <!-- school exterior -->
+    <div class="scene" data-bg="school">
+      <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="800" height="520" fill="#bcd9ea"/>
+        <rect y="380" width="800" height="140" fill="#a9bf8e"/>
+        <rect x="90" y="90" width="620" height="300" fill="#fdfcf8" stroke="#c9c2ae" stroke-width="3"/>
+        <rect x="90" y="90" width="620" height="34" fill="#e9e2cf"/>
+        <g fill="#cfe3ee" stroke="#9db8c6" stroke-width="2">
+          <rect x="130" y="150" width="70" height="52"/><rect x="230" y="150" width="70" height="52"/><rect x="330" y="150" width="70" height="52"/><rect x="430" y="150" width="70" height="52"/><rect x="530" y="150" width="70" height="52"/>
+          <rect x="130" y="230" width="70" height="52"/><rect x="230" y="230" width="70" height="52"/><rect x="430" y="230" width="70" height="52"/><rect x="530" y="230" width="70" height="52"/>
+        </g>
+        <rect x="352" y="238" width="96" height="152" fill="#7a6a52"/>
+        <rect x="364" y="252" width="72" height="60" fill="#a8c8dd"/>
+        <rect x="60" y="400" width="680" height="16" fill="#d9d2bd"/>
+        <circle cx="90" cy="330" r="34" fill="#86ab7c"/><circle cx="712" cy="330" r="38" fill="#86ab7c"/>
+        <circle cx="120" cy="352" r="24" fill="#77996c"/><circle cx="684" cy="354" r="26" fill="#77996c"/>
+      </svg>
+    </div>
+    <!-- courtyard with flowers -->
+    <div class="scene" data-bg="courtyard">
+      <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="800" height="520" fill="#c4dfec"/>
+        <rect x="420" y="40" width="380" height="270" fill="#fdfcf8" stroke="#c9c2ae" stroke-width="3"/>
+        <g fill="#cfe3ee" stroke="#9db8c6" stroke-width="2">
+          <rect x="452" y="80" width="62" height="48"/><rect x="540" y="80" width="62" height="48"/><rect x="628" y="80" width="62" height="48"/>
+          <rect x="452" y="160" width="62" height="48"/><rect x="540" y="160" width="62" height="48"/><rect x="628" y="160" width="62" height="48"/>
+        </g>
+        <rect y="330" width="800" height="190" fill="#9cba85"/>
+        <path d="M0 520 L300 380 L430 380 L240 520 Z" fill="#e4dcc4"/>
+        <g>
+          <circle cx="80" cy="430" r="9" fill="#e88ca0"/><circle cx="120" cy="452" r="8" fill="#f2b04e"/><circle cx="160" cy="428" r="9" fill="#e88ca0"/>
+          <circle cx="210" cy="460" r="8" fill="#fff"/><circle cx="640" cy="440" r="9" fill="#f2b04e"/><circle cx="690" cy="462" r="8" fill="#e88ca0"/>
+          <circle cx="730" cy="432" r="9" fill="#fff"/><circle cx="330" cy="470" r="8" fill="#e88ca0"/><circle cx="520" cy="478" r="8" fill="#f2b04e"/>
+          <circle cx="60" cy="478" r="8" fill="#fff"/><circle cx="420" cy="452" r="7" fill="#e88ca0"/>
+        </g>
+        <circle cx="120" cy="300" r="52" fill="#7fa873"/><circle cx="180" cy="322" r="38" fill="#8fb481"/>
+        <rect x="112" y="330" width="14" height="52" fill="#7a6248"/>
+      </svg>
+    </div>
+    <!-- fountain backyard -->
+    <div class="scene" data-bg="fountain">
+      <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="800" height="520" fill="#bcdcec"/>
+        <rect x="0" y="60" width="240" height="240" fill="#fdfcf8" stroke="#c9c2ae" stroke-width="3"/>
+        <g fill="#cfe3ee" stroke="#9db8c6" stroke-width="2"><rect x="30" y="96" width="52" height="42"/><rect x="104" y="96" width="52" height="42"/><rect x="30" y="164" width="52" height="42"/><rect x="104" y="164" width="52" height="42"/></g>
+        <rect y="330" width="800" height="190" fill="#a7c294"/>
+        <ellipse cx="470" cy="392" rx="215" ry="52" fill="#8fc3dd" stroke="#6ea6c4" stroke-width="4"/>
+        <ellipse cx="470" cy="384" rx="180" ry="40" fill="#aed8ee"/>
+        <rect x="452" y="252" width="36" height="118" fill="#e9e6da" stroke="#b9b2a0" stroke-width="2"/>
+        <ellipse cx="470" cy="252" rx="64" ry="16" fill="#e9e6da" stroke="#b9b2a0" stroke-width="2"/>
+        <rect x="462" y="196" width="16" height="48" fill="#e9e6da" stroke="#b9b2a0" stroke-width="2"/>
+        <path d="M470 196 Q420 236 408 268 M470 196 Q470 244 470 276 M470 196 Q520 236 532 268" stroke="#7db9d9" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <circle cx="408" cy="282" r="5" fill="#7db9d9"/><circle cx="470" cy="290" r="5" fill="#7db9d9"/><circle cx="532" cy="282" r="5" fill="#7db9d9"/>
+        <rect x="596" y="330" width="130" height="14" fill="#8a6f4d"/><rect x="606" y="344" width="12" height="34" fill="#8a6f4d"/><rect x="704" y="344" width="12" height="34" fill="#8a6f4d"/>
+        <circle cx="730" cy="290" r="44" fill="#7fa873"/><rect x="724" y="318" width="12" height="40" fill="#7a6248"/>
+      </svg>
+    </div>
+    <!-- home economics room -->
+    <div class="scene" data-bg="homeec">
+      <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="800" height="520" fill="#f2e8d5"/>
+        <rect width="800" height="300" fill="#f7efdd"/>
+        <g fill="#dcebf2" stroke="#a9bfca" stroke-width="2"><rect x="60" y="52" width="130" height="96"/><rect x="230" y="52" width="130" height="96"/><rect x="560" y="52" width="160" height="96"/></g>
+        <line x1="125" y1="52" x2="125" y2="148" stroke="#a9bfca" stroke-width="2"/><line x1="295" y1="52" x2="295" y2="148" stroke="#a9bfca" stroke-width="2"/>
+        <rect x="420" y="66" width="104" height="70" fill="#fffdf6" stroke="#c9bfa5" stroke-width="2"/>
+        <text x="472" y="96" text-anchor="middle" font-size="15" fill="#8a7a58" font-family="sans-serif">家庭科室</text>
+        <text x="472" y="120" text-anchor="middle" font-size="11" fill="#a08e68" font-family="sans-serif">本日：カレー実習</text>
+        <rect y="300" width="800" height="30" fill="#d8c9a8"/>
+        <rect y="330" width="800" height="190" fill="#e6dbc2"/>
+        <g>
+          <rect x="70" y="252" width="290" height="58" fill="#fdfcf8" stroke="#bfb498" stroke-width="2"/>
+          <circle cx="130" cy="282" r="17" fill="#5a6570"/><circle cx="215" cy="282" r="17" fill="#5a6570"/>
+          <rect x="440" y="252" width="290" height="58" fill="#fdfcf8" stroke="#bfb498" stroke-width="2"/>
+          <circle cx="500" cy="282" r="17" fill="#5a6570"/><circle cx="585" cy="282" r="17" fill="#5a6570"/>
+        </g>
+        <ellipse cx="215" cy="238" rx="42" ry="13" fill="#b9c4cc"/><rect x="188" y="222" width="54" height="16" rx="6" fill="#98a5ae"/>
+        <path d="M560 236 q10 -16 26 -10 M600 240 q14 -10 24 0" stroke="#e07840" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="592" cy="230" r="7" fill="#cf3f3f"/><circle cx="618" cy="238" r="6" fill="#e8b04b"/>
+      </svg>
+    </div>
+    <!-- music room -->
+    <div class="scene" data-bg="music">
+      <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="800" height="520" fill="#efe7d6"/>
+        <rect width="800" height="330" fill="#f6efdd"/>
+        <g fill="#dcebf2" stroke="#a9bfca" stroke-width="2"><rect x="70" y="46" width="170" height="120"/><rect x="560" y="46" width="170" height="120"/></g>
+        <line x1="155" y1="46" x2="155" y2="166" stroke="#a9bfca" stroke-width="2"/><line x1="645" y1="46" x2="645" y2="166" stroke="#a9bfca" stroke-width="2"/>
+        <rect x="330" y="60" width="140" height="88" fill="#fffdf6" stroke="#c9bfa5" stroke-width="2"/>
+        <text x="400" y="98" text-anchor="middle" font-size="16" fill="#8a7a58" font-family="sans-serif">音楽室</text>
+        <text x="400" y="124" text-anchor="middle" font-size="11" fill="#a08e68" font-family="sans-serif">放課後 ・ 使用中</text>
+        <rect y="330" width="800" height="190" fill="#e0d2b2"/>
+        <!-- grand piano silhouette -->
+        <path d="M250 330 L250 268 L430 268 Q560 268 566 316 Q568 344 520 346 L300 346 L300 330 Z" fill="#2e3440"/>
+        <rect x="262" y="330" width="14" height="66" fill="#2e3440"/><rect x="520" y="338" width="14" height="58" fill="#2e3440"/>
+        <rect x="298" y="300" width="150" height="14" fill="#fdfcf8" stroke="#9aa0a8" stroke-width="1.5"/>
+        <g fill="#2e3440"><rect x="302" y="300" width="5" height="9"/><rect x="314" y="300" width="5" height="9"/><rect x="326" y="300" width="5" height="9"/><rect x="350" y="300" width="5" height="9"/><rect x="362" y="300" width="5" height="9"/><rect x="386" y="300" width="5" height="9"/><rect x="398" y="300" width="5" height="9"/><rect x="422" y="300" width="5" height="9"/></g>
+        <rect x="352" y="352" width="90" height="12" fill="#6b543a"/><rect x="362" y="364" width="10" height="30" fill="#6b543a"/><rect x="422" y="364" width="10" height="30" fill="#6b543a"/>
+        <path d="M470 250 q6 -18 22 -20 M505 254 q10 -14 24 -12" stroke="#8a7a58" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="492" cy="226" r="5" fill="#8a7a58"/><circle cx="529" cy="238" r="5" fill="#8a7a58"/>
+      </svg>
+    </div>
+    <!-- corridor -->
+    <div class="scene" data-bg="corridor">
+      <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="800" height="520" fill="#efe9da"/>
+        <polygon points="0,0 300,120 300,400 0,520" fill="#f8f4e8"/>
+        <polygon points="800,0 500,120 500,400 800,520" fill="#f3eddc"/>
+        <polygon points="300,120 500,120 500,400 300,400" fill="#fdfbf4"/>
+        <rect x="330" y="170" width="140" height="180" fill="#dcebf2" stroke="#a9bfca" stroke-width="3"/>
+        <line x1="400" y1="170" x2="400" y2="350" stroke="#a9bfca" stroke-width="3"/>
+        <polygon points="0,520 300,400 500,400 800,520" fill="#ddd2b8"/>
+        <g fill="#fdfcf8" stroke="#c9bfa5" stroke-width="2">
+          <rect x="52" y="120" width="120" height="86"/><rect x="628" y="120" width="120" height="86"/>
+        </g>
+        <text x="112" y="158" text-anchor="middle" font-size="13" fill="#8a7a58" font-family="sans-serif">生徒会室</text>
+        <text x="112" y="182" text-anchor="middle" font-size="10" fill="#a08e68" font-family="sans-serif">副会長 白華時雨</text>
+        <text x="688" y="158" text-anchor="middle" font-size="13" fill="#8a7a58" font-family="sans-serif">文化祭</text>
+        <text x="688" y="182" text-anchor="middle" font-size="10" fill="#a08e68" font-family="sans-serif">実行委員 募集中</text>
+        <rect x="352" y="66" width="96" height="26" fill="#fffdf6" stroke="#c9bfa5" stroke-width="2"/>
+        <text x="400" y="84" text-anchor="middle" font-size="12" fill="#8a7a58" font-family="sans-serif">放課後</text>
+      </svg>
+    </div>
+    <!-- way home sunset -->
+    <div class="scene" data-bg="sunset">
+      <svg viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="800" height="520" fill="#f4b183"/>
+        <rect width="800" height="330" fill="#f7c489"/>
+        <circle cx="400" cy="318" r="56" fill="#fdf0d0"/>
+        <circle cx="400" cy="318" r="86" fill="#fbd9a0" opacity=".55"/>
+        <g fill="#7d6a72"><rect x="30" y="238" width="90" height="96"/><rect x="140" y="262" width="70" height="72"/><rect x="600" y="248" width="84" height="86"/><rect x="700" y="268" width="64" height="66"/></g>
+        <g fill="#574a55"><polygon points="30,238 75,206 120,238"/><polygon points="600,248 642,218 684,248"/></g>
+        <polygon points="290,520 385,334 415,334 510,520" fill="#8a7370"/>
+        <line x1="400" y1="360" x2="400" y2="392" stroke="#fdf0d0" stroke-width="4"/><line x1="400" y1="424" x2="400" y2="466" stroke="#fdf0d0" stroke-width="5"/>
+        <rect y="334" width="290" height="186" fill="#a08a80"/><rect y="334" width="510" height="186" x="290" fill="none"/>
+        <rect x="510" y="334" width="290" height="186" fill="#a08a80"/>
+        <g stroke="#6d5a63" stroke-width="4"><line x1="180" y1="334" x2="180" y2="520"/><line x1="620" y1="334" x2="620" y2="520"/></g>
+        <g fill="#5f7263"><circle cx="96" cy="318" r="30"/><circle cx="712" cy="312" r="34"/></g>
+      </svg>
+    </div>
+
+    <div class="place-tag" id="placeTag">東雲学園 <small id="placeSub">物語のはじまり</small></div>
+    <div class="delta-pop" id="deltaPop"></div>
+
+    <!-- textbox -->
+    <div class="textbox" id="textbox" role="button" aria-label="タップで進む" tabindex="0">
+      <div class="nameplate" id="nameplate">　</div>
+      <p class="text-body" id="textBody"></p>
+      <div class="caret-row">
+        <span class="tap-hint">タップ / クリック / スペースキーで進む</span>
+        <span class="next-arrow" id="nextArrow" style="visibility:hidden">▼ 次へ</span>
+      </div>
+    </div>
+
+    <!-- choices -->
+    <div class="choices" id="choices">
+      <div class="choice-card">
+        <h2 id="choiceTitle">選択</h2>
+        <p class="q" id="choiceQ"></p>
+        <div id="choiceBtns"></div>
+      </div>
+    </div>
+
+    <!-- title overlay -->
+    <div class="overlay open" id="titleOverlay">
+      <div class="ov-inner">
+        <p class="ov-kicker">ドリミ二次創作 ノベルゲーム</p>
+        <h2 class="ov-title">ドキドキっ♡<br>はっかーずらぶ！<br><span style="font-size:16px; letter-spacing:.06em">【ドリミ二次創作】</span></h2>
+        <p class="ov-lede">
+          先輩にいきなり告白！「考える時間をください……」って言われちゃった！脈アリ！？（※違います）<br>
+          返事までの放課後、デリカシーゼロ問答を連発して先輩を追い詰めろ！付き合えるか、振られるかは、あなたの選択次第！胸キュンと恐怖、2つのドキドキ学園ラブコメ♡
+        </p>
+        <div class="ov-card">
+          <h3>遊び方（1周 約10分）</h3>
+          <ul>
+            <li>テキストをタップして読み進めます。選択肢は全部で <b>5回・2択</b>。</li>
+          </ul>
+        </div>
+        <div class="ov-card">
+          <h3>到達したエンディング</h3>
+          <div class="end-slots">
+            <div class="end-slot" id="slot-bad">BAD END<span class="es-name">？？？</span></div>
+            <div class="end-slot" id="slot-true">TRUE END<span class="es-name">？？？</span></div>
+            <div class="end-slot" id="slot-normal">NORMAL END<span class="es-name">？？？</span></div>
+          </div>
+        </div>
+        <button class="big-btn" id="startBtn" type="button">▶ はじめる ― 中庭で、いきなり告白！</button>
+      </div>
+    </div>
+
+    <!-- ending overlay -->
+    <div class="overlay" id="endOverlay">
+      <div class="ov-inner">
+        <span class="end-badge" id="endBadge">END</span>
+        <h2 class="end-title" id="endTitle"></h2>
+        <p class="end-text" id="endText"></p>
+        <div class="stat-row">
+          <span class="stat">最終 気遣いゲージ：<b id="endGauge">0</b></span>
+          <span class="stat">時雨に気を遣わせた回数：<b id="endCare">0回</b></span>
+          <span class="stat">到達END：<b id="endTotal">0 / 3</b></span>
+        </div>
+        <div class="ov-card">
+          <h3 id="endHintTitle">このENDについて</h3>
+          <p id="endHint" style="margin:0"></p>
+        </div>
+        <button class="big-btn" id="retryBtn" type="button">↻ もう一周する</button>
+        <button class="ghost-btn" id="toTitleBtn" type="button">タイトルに戻る（ENDコレクションを見る）</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- controls -->
+  <div class="controls">
+    <button class="ctl-btn primary" id="advanceBtn" type="button">▼ 進む</button>
+    <button class="ctl-btn bgm-btn is-on" id="bgmBtn" type="button" aria-pressed="true" aria-label="BGMのオン・オフ"><span class="bgm-note" aria-hidden="true">♪</span> BGM：ON</button>
+    <button class="ctl-btn" id="logBtn" type="button">📖 バックログ</button>
+    <button class="ctl-btn" id="howBtn" type="button">？ ゲージとENDの仕組み</button>
+    <button class="ctl-btn" id="restartBtn" type="button">↻ 最初から</button>
+  </div>
+  <p class="foot-note">ドキドキっ♡はっかーずらぶ！【ドリミ二次創作】 ― 告白から始まる、デリカシーゼロ問答ラブコメ。背景とテキストだけの物語です。</p>
+</div>
+
+<!-- how modal -->
+<div class="modal" id="howModal" role="dialog" aria-modal="true" aria-label="仕組みの説明">
+  <div class="modal-sheet">
+    <h2>気遣いゲージとエンディング</h2>
+    <div class="log-item"><div class="who">気遣いゲージ</div><div class="what">時雨は気を遣うと、言葉を飲み込み、全部ひとりで受け止め、笑顔で肯定してくれます。そのたびゲージが +25 溜まります。溜まったぶんは減りません。</div></div>
+    <div class="log-item"><div class="who">BAD END（恋愛）</div><div class="what">選択1〜4で3回以上（ゲージ75以上）気を遣わせると、時雨は限界を迎え、最後まで断ることができず、笑顔のまま「お付き合いしましょう」と言ってしまいます。本音ではない恋愛の始まりです。</div></div>
+    <div class="log-item"><div class="who">TRUE END</div><div class="what">ゲージを75未満に抑えて下校途中まで辿り着き、最後の選択で「返事を聞く」を選ぶと到達します。時雨はクッション言葉のあとに本音で答え、草壁をしっかり振ります。それが一番、彼が本音をくれた結末です。</div></div>
+    <div class="log-item"><div class="who">NORMAL END（友情）</div><div class="what">ゲージを75未満に抑え、最後に「告白はなかったことに」を選ぶと到達します。何も起きません。でも穏やかな友情が始まります。</div></div>
+    <div class="log-item"><div class="who">観察のコツ</div><div class="what">時雨の「大丈夫です」「お気になさらず」は要注意サイン。彼の負担を増やすのは「過剰に助ける・無理に合わせる・約束させる・深く詮索する」こと。自分の希望を正直に言ってあげるほうが、彼は楽になります。</div></div>
+    <div class="log-item"><div class="who">裏庭 ― 真也くんとのペア</div><div class="what">マフィアの跡取りと外科医を目指す真也くんは、いずれ道を違える可能性が高い二人です。「ずっと一緒に」と願うこと自体は自由でも、それを「努力します」と約束させるのは時雨への負担になります。正解は、願いは願いとして置くこと。</div></div>
+    <div class="log-item"><div class="who">家庭科室 ― 時雨の手料理</div><div class="what">時雨は激辛が好きです。「みんなが食べられる美味しいやつ」を頼むと、彼は自分の好みを引っ込めて合わせます。彼が本当に作りたい激辛を頼んであげるのが正解です。</div></div>
+    <div class="log-item"><div class="who">音楽室 ― ピアノ</div><div class="what">時雨のピアノは、亡くなった母に教わったものです。両親の話は、彼にとって最も触れられたくない場所。笑顔が固まったら、それ以上聞かないであげてください。</div></div>
+    <button class="big-btn" id="howClose" type="button">閉じる</button>
+  </div>
+</div>
+
+<!-- backlog modal -->
+<div class="modal" id="logModal" role="dialog" aria-modal="true" aria-label="バックログ">
+  <div class="modal-sheet">
+    <h2>バックログ</h2>
+    <div id="logList"><p style="color:var(--ink-soft); font-size:13.5px">まだ記録がありません。</p></div>
+    <button class="big-btn" id="logClose" type="button">閉じる</button>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ============ state ============ */
+var state = { gauge:0, careCount:0, choicesMade:0, nodeId:null, typing:false, fullText:"", backlog:[], endings:{bad:false,true:false,normal:false}, started:false, ended:false };
+var $ = function(id){ return document.getElementById(id); };
+var gaugeNum=$("gaugeNum"), gaugeNote=$("gaugeNote"), gaugeBox=$("gaugeBox");
+var textBody=$("textBody"), nameplate=$("nameplate"), nextArrow=$("nextArrow");
+var choicesEl=$("choices"), choiceBtns=$("choiceBtns");
+
+var GAUGE_NOTES = [
+  [0,  "時雨は今、自然に微笑んでいます。このまま彼の本音を引き出せるでしょうか。"],
+  [1,  "時雨の笑顔が、ほんの少しだけ固くなりました。……気のせいでしょうか。"],
+  [26, "時雨は「大丈夫です」と言いました。その言葉、どこまで本当でしょう。"],
+  [51, "時雨の笑顔が完璧すぎます。完璧な笑顔は、限界のサインかもしれません。"],
+  [75, "危険です。時雨はもう、ほとんど何も言わなくなっています。次の気遣いで、彼は笑顔のまま去ってしまうでしょう。"]
+];
+function renderGauge(pop){
+  gaugeNum.textContent = state.gauge + " / 100";
+  var rect = document.getElementById("heartFillRect");
+  if (rect){
+    var h = state.gauge * 0.92;
+    rect.setAttribute("height", h);
+    rect.setAttribute("y", 92 - h);
+  }
+  var pct = document.getElementById("heartPct");
+  if (pct) pct.textContent = state.gauge > 0 ? state.gauge + "%" : "";
+  gaugeBox.classList.toggle("danger", state.gauge>=75);
+  var note = GAUGE_NOTES[0][1];
+  for (var i=0;i<GAUGE_NOTES.length;i++){ if (state.gauge>=GAUGE_NOTES[i][0]) note = GAUGE_NOTES[i][1]; }
+  gaugeNote.innerHTML = state.gauge>=75 ? "<b>"+note+"</b>" : note;
+  if (pop){
+    var d = $("deltaPop");
+    d.textContent = pop;
+    d.className = "delta-pop" + (pop.indexOf("+")>=0 ? "" : " good");
+    void d.offsetWidth;
+    d.classList.add("show");
+  }
+}
+function renderMeta(){
+  $("choiceCount").textContent = state.choicesMade + " / 5";
+  var n = (state.endings.bad?1:0)+(state.endings.true?1:0)+(state.endings.normal?1:0);
+  $("endCount").textContent = n + " / 3";
+  ["bad","true","normal"].forEach(function(k){
+    var slot = $("slot-"+k);
+    if (state.endings[k]){ slot.classList.add("got"); slot.querySelector(".es-name").textContent = ENDINGS[k].slotName; }
+  });
+}
+
+/* ============ backgrounds ============ */
+var BG_META = {
+  school:  ["東雲学園・校舎前","白い壁の、四角い学校"],
+  courtyard:["花の咲く中庭","第1話 ― いきなり告白"],
+  fountain:["噴水のある裏庭","第2話 ― 返事待ちの昼休み"],
+  homeec:  ["家庭科室","第3話 ― 調理実習"],
+  corridor:["放課後の廊下","廊下"],
+  music:   ["音楽室の前","第4話 ― 放課後、ピアノの音"],
+  sunset:  ["下校途中","最終話 ― 返事の時間"]
+};
+function setBg(bg){
+  var scenes = document.querySelectorAll(".scene");
+  scenes.forEach(function(s){ s.classList.toggle("active", s.getAttribute("data-bg")===bg); });
+  var meta = BG_META[bg]; if (meta){ $("placeTag").firstChild.textContent = meta[0]+" "; $("placeSub").textContent = meta[1]; $("sceneName").textContent = meta[0]; }
+}
+
+/* ============ story graph ============ */
+/* node: {bg, mood, who:'narr'|'shigure'|'kusakabe'|'mono', name, text, next}
+   choice node: {choice:true, bg, title, q, options:[{label, sub, tag, gauge, next}]} */
+var N = {};
+function add(id, node){ N[id]=node; }
+
+add("p1",{bg:"school",who:"mono",text:"東雲学園。白い壁の、四角い校舎。生徒会副会長・白華時雨（はっか しぐれ）は、誰にでも優しい人格者。歩く生徒会。",next:"p2"});
+add("p2",{bg:"school",who:"kusakabe",text:"（俺、草壁。一般生徒。白華先輩のフォロワーで、ほんのり……いや、かなり好き。今日こそ告白する！ 話したことないけど、勢いが大事！）",next:"p3"});
+add("p3",{bg:"courtyard",who:"mono",text:"昼休み。花の咲く中庭。時雨がひとりでベンチに座っているのを、草壁は見つけた。――今しかない。",next:"p4"});
+add("p4",{bg:"courtyard",who:"kusakabe",text:"「白華先輩！ はじめまして、草壁です！ いきなりですけど、好きです！ 俺と付き合ってください！」",next:"p5"});
+add("p5",{bg:"courtyard",who:"mono",text:"沈黙。時雨の笑顔が、ほんの少しだけ固まった。本当は、やんわり断りたかったはずだ。でも彼は、断ることが――上手く、できなかった。",next:"p6"});
+add("p6",{bg:"courtyard",who:"shigure",text:"「……あ、ありがとうございます。……その、……少しだけ、考える時間をください……」",next:"p7"});
+add("p7",{bg:"courtyard",who:"kusakabe",text:"（考える時間！？ 脈アリってこと！？ 心臓がバクバク言ってる！ ……でも、どれくらい待てばいいんだ！？）",next:"c1"});
+
+add("c1",{choice:true,bg:"courtyard",title:"選択 1 ／ 5 ― 中庭・告白直後",q:"",
+ options:[
+  {tag:"",label:"「1時間で足りますか！？ 放課後まで待ってますね！」",sub:"",gauge:25,next:"c1a"},
+  {tag:"",label:"「分かりました。ゆっくり考えてください」",sub:"",gauge:0,next:"c1b"}
+ ]});
+add("c1a",{bg:"courtyard",who:"shigure",text:"「……1時間、ですか。……分かりました。……放課後までに、決めますね。……ええ」",next:"c1a2"});
+add("c1a2",{bg:"courtyard",who:"mono",text:"勝手に期限を決められた時雨は、笑顔のまま頷くしかなかった。草壁は（約束できた！）と一人でドキドキしている。――見ている側だけが、ざわっとした。",next:"s2a"});
+add("c1b",{bg:"courtyard",who:"shigure",text:"「……ありがとうございます。……では、放課後、下校の時に。……ちゃんと、お返事しますね」",next:"c1b2"});
+add("c1b2",{bg:"courtyard",who:"mono",text:"時雨の肩から、少しだけ力が抜けた。草壁は（放課後までドキドキ確定だ……！）と一人で舞い上がっている。",next:"s2a"});
+
+add("s2a",{bg:"fountain",who:"mono",text:"昼休み。考える時間をもらったはずなのに、草壁は噴水の裏庭で時雨を見かけて、我慢できずに話しかけていた。待つって、難しい。",next:"s2b"});
+add("s2b",{bg:"fountain",who:"shigure",text:"「草壁さん。……ふふ、また会いましたね。噴水の音、落ち着くんですよ」",next:"s2c"});
+add("s2c",{bg:"fountain",who:"mono",text:"そこへ、明るい声が通り過ぎた。真也くん――時雨のペアの親友が、時雨に大きく手を振って、笑いながら校舎へ戻っていく。時雨も、柔らかく手を振り返した。",next:"s2d"});
+add("s2d",{bg:"fountain",who:"kusakabe",text:"「白華先輩って真也くんと仲良いですよね、ずっと一緒にいて欲しいです！ 俺ペア推しなんで！」",next:"s2e"});
+add("s2e",{bg:"fountain",who:"mono",text:"時雨の手が、一瞬だけ止まった。――マフィアの跡取りと、外科医を目指す少年。歩む道が、いずれ大きく違えていく二人だということを、草壁は知らない。知らないまま、目を輝かせている。",next:"s2f"});
+add("s2f",{bg:"fountain",who:"shigure",text:"「……そう、ですね。真也は……大切な、友人です。……ずっと、ですか」",next:"c2"});
+add("c2",{choice:true,bg:"fountain",title:"選択 2 ／ 5 ― 裏庭の噴水",q:"",
+ options:[
+  {tag:"",label:"「だから約束してください！ そうなるよう努力するって、言ってください！」",sub:"",gauge:25,next:"c2a"},
+  {tag:"",label:"「……なんて、俺の勝手な願いです。無理に約束なんて、しなくて大丈夫です」",sub:"",gauge:0,next:"c2b"}
+ ]});
+add("c2a",{bg:"fountain",who:"shigure",text:"「……分かりました。……そうなるよう、努力します。……ええ。……努力、しますから」",next:"c2a2"});
+add("c2a2",{bg:"fountain",who:"mono",text:"言わせてしまった、ということに、草壁は気づかない。（約束してもらえた！ ペア永遠だ！）と一人でドキドキしている。時雨は微笑んだまま、噴水の水面をじっと見ていた。",next:"s3a"});
+add("c2b",{bg:"fountain",who:"shigure",text:"「……願い、ですか。……ふふ。……そうですね。……そうだといいですね」",next:"c2b2"});
+add("c2b2",{bg:"fountain",who:"mono",text:"約束ではない、願い。それなら、時雨も受け取ることができた。彼の肩から、ほんの少しだけ力が抜ける。草壁は（なんか優しい顔をされた……！）と、また一人でドキドキしていた。",next:"s3a"});
+
+add("s3a",{bg:"homeec",who:"mono",text:"午後の調理実習。家庭科室。今日の課題はカレー。班決めの結果――草壁は、時雨とペアになった。本来のペア相手の真也くんは、風邪で欠席らしい。考える時間の途中だというのに、草壁の頭はもうカレーのことでいっぱいだ。",next:"s3b"});
+add("s3b",{bg:"homeec",who:"kusakabe",text:"（ペア！？ ありがとう真也くん！ 早く治して真也くん！ ……ってことは、今日は白華さんの手料理が食べられるってことじゃん！？）",next:"s3c"});
+add("s3c",{bg:"homeec",who:"kusakabe",text:"「白華先輩の手料理が食べたいな！ 今日、作ってもらえますか！？」",next:"s3d"});
+add("s3d",{bg:"homeec",who:"shigure",text:"「俺の、ですか。……ええ、構いませんよ。……ただ、味付けはどうしましょうか。俺は普段、かなり辛く作るのですが」",next:"s3e"});
+add("s3e",{bg:"homeec",who:"mono",text:"時雨は辛いものが好きだ。本当は、真っ赤な激辛を作りたいはずだ。けれど彼はまず、相手の食べられる味に合わせようとする。いつものように、自分の好みを後ろへ下げて。",next:"c3"});
+add("c3",{choice:true,bg:"homeec",title:"選択 3 ／ 5 ― 家庭科室",q:"",
+ options:[
+  {tag:"",label:"「じゃあ、みんなが食べられる美味しいやつをお願いします！ 辛いのはナシで！」",sub:"",gauge:25,next:"c3a"},
+  {tag:"",label:"「先輩が本当に好きなやつがいいです。……本気の激辛、作ってください！」",sub:"",gauge:0,next:"c3b"}
+ ]});
+add("c3a",{bg:"homeec",who:"shigure",text:"「……辛いのは、なしで、ですね。……分かりました。……大丈夫です、合わせますから」",next:"c3a2"});
+add("c3a2",{bg:"homeec",who:"mono",text:"出来上がったのは、完璧に美味しい中辛カレー。全員が食べられる、優しい味。ただ、時雨自身の好きな味ではなかった。彼は自分の分に、ほとんど手をつけなかった。草壁だけが（最高に美味い！）と感動している。",next:"s4a"});
+add("c3b",{bg:"homeec",who:"shigure",text:"「……俺の、本気のやつを、ですか。……ふふ、言われると思っていませんでした。……では、遠慮なく作らせていただきますね」",next:"c3b2"});
+add("c3b2",{bg:"homeec",who:"mono",text:"真っ赤な激辛カレーが出来上がった。時雨は自分の分を一口食べて、満足そうに目を細める。草壁は一口で汗だくだが、（これが先輩の本当の手料理だ……！）と、涙目でドキドキしていた。",next:"s4a"});
+
+add("s4a",{bg:"music",who:"mono",text:"放課後。返事の時間が近づいている。廊下を歩いていた草壁は、音楽室から流れるピアノの音に足を止めた。扉の隙間から見えた演奏者は――時雨だった。誰も見ていないと思っているのか、笑顔ではない顔で、静かに弾いている。",next:"s4b"});
+add("s4b",{bg:"music",who:"kusakabe",text:"（白華さん、ピアノ弾けるのか……！ かっこいい、似合いすぎる……！ 心臓がバクバク言ってる……！）",next:"s4c"});
+add("s4c",{bg:"music",who:"mono",text:"やがて音が止んだ。時雨がこちらに気づき、いつもの笑顔に戻る。けれど鍵盤の上の指先が、ほんの少しだけ震えていた気がした。",next:"s4d"});
+add("s4d",{bg:"music",who:"shigure",text:"「……草壁さん。……聞かれてしまいましたね。……ふふ、恥ずかしいです」",next:"s4e"});
+add("s4e",{bg:"music",who:"kusakabe",text:"「白華先輩が憧れなんです！ 子どもの頃からピアノをやってたんですか？ 元々好きで？」",next:"s4f"});
+add("s4f",{bg:"music",who:"mono",text:"時雨の笑顔が、音もなく固まった。――見ている人だけが知っている。時雨のピアノは、亡くなった母に教わったものだ。彼の両親は、殺されている。その質問は、彼のいちばん深い場所を、無邪気に踏んでいる。草壁は、何も知らない。",next:"c4"});
+add("c4",{choice:true,bg:"music",title:"選択 4 ／ 5 ― 音楽室の前",q:"",
+ options:[
+  {tag:"",label:"「ご家族も音楽をやってたんですか？ もっと聞かせてください！」",sub:"",gauge:25,next:"c4a"},
+  {tag:"",label:"「……すみません、今のは答えなくて大丈夫です。無理に聞いて、ごめんなさい」",sub:"",gauge:0,next:"c4b"}
+ ]});
+add("c4a",{bg:"music",who:"shigure",text:"「……家族は、……ええ、まあ。……大丈夫です、昔のことですから。……あまり、覚えていないんです。……ふふ」",next:"c4a2"});
+add("c4a2",{bg:"music",who:"mono",text:"時雨は微笑んで、話を閉じた。何一つ、本当のことは言わずに。音楽室を出ていく背中が、いつもより小さく見えた。草壁は（照れてるのかな……）と一人でドキドキしている。――見ている側の胸だけが、ざわついたまま残った。",next:"check"});
+add("c4b",{bg:"music",who:"mono",text:"草壁は、それ以上聞かなかった。静かな廊下に、遠くの部活動の音だけが響く。長い沈黙のあと、時雨が小さく息を吐いた。",next:"c4b2"});
+add("c4b2",{bg:"music",who:"shigure",text:"「……あの、ありがとうございます。……その曲は、母が教えてくれたものでして。……あまり、人前では弾かないんです。……聞かれて、少し驚きました」",next:"c4b3"});
+add("c4b3",{bg:"music",who:"kusakabe",text:"「……じゃあ、俺は忘れます。今日ピアノを聞いたことも、白華さんのその顔も。……誰にも言いません」",next:"c4b4"});
+add("c4b4",{bg:"music",who:"shigure",text:"「……ありがとう、草壁」",next:"c4b5"});
+add("c4b5",{bg:"music",who:"mono",text:"短いその一言は、敬語ではなかった。草壁は一生分ドキドキした。――そして見ている人は知っている。その一言が出るまでに、彼がどれだけの言葉を飲み込んできたかを。",next:"check"});
+
+/* bad route: dated because he could not refuse */
+add("bad1",{bg:"sunset",who:"mono",text:"――下校途中。返事の時間。夕日の帰り道で、草壁は時雨と向き合った。時雨はもう、完璧な笑顔しかできなくなっていた。",next:"bad2"});
+add("bad2",{bg:"sunset",who:"shigure",text:"「草壁さん。……お待たせしました。……お返事、しますね」",next:"bad3"});
+add("bad3",{bg:"sunset",who:"kusakabe",text:"「はい！ お願いします！」",next:"bad4"});
+add("bad4",{bg:"sunset",who:"shigure",text:"「……分かりました。……お付き合い、しましょう。……貴方が、そこまで言ってくださるなら……」",next:"bad5"});
+add("bad5",{bg:"sunset",who:"mono",text:"草壁の胸は爆発しそうにドキドキした。でも、見ている人は知っている。その言葉は、時雨の本音じゃない。彼はただ、断る力をもう残していなかっただけだ。",next:"bad6"});
+add("bad6",{bg:"sunset",who:"mono",text:"翌日から、二人は恋人になった。時雨はデートの誘いにも、無理な頼みにも、全部笑顔で頷いた。一度も、断らなかった。一度も――。",next:"bad7"});
+add("bad7",{bg:"sunset",who:"kusakabe",text:"（付き合えた！ 夢みたいだ！ ……でも、なんでだろう。白華さんの笑顔、見るたびに、少しだけ胸が痛い……）",next:"END_bad"});
+
+/* final scene */
+add("f1",{bg:"sunset",who:"mono",text:"――下校途中。返事の時間。夕日の帰り道。時雨が、まっすぐに草壁の前に立った。",next:"f2"});
+add("f2",{bg:"sunset",who:"shigure",text:"「お待たせしました。……ちゃんと、考えました。……今日は、あまり『大丈夫です』で誤魔化さずに、お話ししますね」",next:"f3"});
+add("f3",{bg:"sunset",who:"kusakabe",text:"（心臓が、またうるさい。……返事だ。ついに返事だ。でも、もし先輩が本当は困っているなら――俺の告白自体、なかったことにした方が、楽なのかも……）",next:"c5"});
+add("c5",{choice:true,bg:"sunset",title:"選択 5 ／ 5 ― 下校途中・返事の時間",q:"",
+ options:[
+  {tag:"",label:"「返事をください。ちゃんと聞きます」",sub:"",gauge:0,next:"t1"},
+  {tag:"",label:"「告白は、なかったことにしてください」",sub:"",gauge:0,next:"n1"}
+ ]});
+/* TRUE route */
+add("t1",{bg:"sunset",who:"mono",text:"沈黙が、3秒。噴水の音より遠くで、鳥が鳴いた。",next:"t2"});
+add("t2",{bg:"sunset",who:"shigure",text:"「……その、ありがとうございます。……本当に、嬉しいです。貴方みたいな方に、そう言ってもらえるなんて」",next:"t3"});
+add("t3",{bg:"sunset",who:"shigure",text:"「ただ……あの、聞いてください。俺は今、誰かとお付き合いする未来が、どうしても想像できないんです。……自分のことで精一杯で。……だから、ごめんなさい。お受けできません」",next:"t4"});
+add("t4",{bg:"sunset",who:"kusakabe",text:"「……っ。……分かりました。言ってくれて、ありがとうございます。……白華さんの本音、初めてもらえた気がします」",next:"t5"});
+add("t5",{bg:"sunset",who:"shigure",text:"「……ふふ。……ごめんね、草壁。……でも、ありがとう。貴方は、俺に気を遣わせないでくれた、数少ない人です」",next:"t6"});
+add("t6",{bg:"sunset",who:"mono",text:"最後の言葉は、短くて、敬語じゃなかった。振られたはずなのに、草壁の胸は不思議と晴れやかだった。本音で振られた。それは、本音で向き合ってもらえた、ということだった。",next:"END_true"});
+/* NORMAL route */
+add("n1",{bg:"sunset",who:"shigure",text:"「……なかったことに、ですか。……ふふ、ありがとうございます。……では明日、家庭科室で辛口カレーのリベンジを。真也も連れてきますね」",next:"n2"});
+add("n2",{bg:"sunset",who:"kusakabe",text:"「はい！ 俺は甘口鍋、担当します！」",next:"n3"});
+add("n3",{bg:"sunset",who:"mono",text:"何も起きなかった。返事も、恋も、何も。ただ、並んで歩く帰り道と、明日の約束ができた。それだけで草壁は、足取りが軽くなるのを感じていた。",next:"n4"});
+add("n4",{bg:"sunset",who:"mono",text:"告白はなかったことになった。でも友情の始まりは、いつも静かだ。――多分。",next:"END_normal"});
+
+var ENDINGS = {
+  bad:{ slotName:"付き合っちゃった", badge:"BAD END ― 恋愛", badgeClass:"bad",
+    title:"BAD END「付き合っちゃった日」",
+    text:"デリカシーゼロの問答の果てに、時雨は断れなかった。\n勝手に決められた期限、約束させられた願い、合わせさせられた好み、踏み込まれた過去――。そのたび彼は言葉を飲み込み、全部受け止め、完璧に微笑んだ。\n\nそして返事の時間、彼は笑顔のまま「お付き合いしましょう」と言った。本音じゃなかったのに。\n\n草壁だけがドキドキしていた恋は、付き合うことで完成してしまった――いちばん怖い形で。",
+    hint:"気を遣わせた回数が3回以上（ゲージ75以上）で到達するENDです。次の周回では「期限を詰める・願いを約束に変える・好みを合わせさせる・ピアノの過去を詮索する」を避けてみてください。時雨はそのほうが、本音の返事ができます。" },
+  true:{ slotName:"本音で、振られた", badge:"TRUE END", badgeClass:"true",
+    title:"TRUE END「本音で、振られた日」",
+    text:"告白の返事は、きっぱりとした「ごめんなさい」だった。でもそれは、時雨が初めてクッション言葉の奥の本音を、まっすぐ渡してくれた瞬間だった。\n\n「誰かと付き合う未来が想像できない」――未来を諦めるように生きてきた彼の、正直な答え。\n\n振られた恋は終わった。けれど草壁は、彼の本音を知る、数少ない一人になった。",
+    hint:"ゲージを75未満に抑え、最後に「返事を聞く」を選ぶと到達するENDです。振られることが、彼にとって一番正直な結末でした。" },
+  normal:{ slotName:"告白はなかったことに", badge:"NORMAL END ― 友情", badgeClass:"normal",
+    title:"NORMAL END「何も起きない帰り道」",
+    text:"告白は、なかったことになった。返事も、ドラマも、何も起きなかった。\n\n並んで歩いた帰り道と、明日のカレーの約束。それだけ。\n\nでも時雨は、草壁の前では少しだけ気を抜けるようになっていた。友情という名の、穏やかで確かな始まりだった。",
+    hint:"ゲージを75未満に抑え、最後に「告白はなかったことに」を選ぶと到達するENDです。何も起きないことも、彼にとっては救いでした。" }
+};
+
+/* ============ typewriter ============ */
+var typeTimer = null;
+function typeText(full){
+  state.fullText = full; state.typing = true; nextArrow.style.visibility="hidden";
+  textBody.textContent = "";
+  var i = 0;
+  clearInterval(typeTimer);
+  typeTimer = setInterval(function(){
+    i++;
+    textBody.textContent = full.slice(0, i);
+    if (i >= full.length){ finishType(); }
+  }, 26);
+}
+function finishType(){
+  clearInterval(typeTimer); state.typing = false;
+  textBody.textContent = state.fullText;
+  nextArrow.style.visibility = "visible";
+}
+
+/* ============ engine ============ */
+function showNode(id){
+  state.nodeId = id;
+  if (id === "check"){
+    showNode(state.gauge >= 75 ? "bad1" : "f1"); return;
+  }
+  if (id.indexOf("END_") === 0){ showEnding(id.slice(4)); return; }
+  var node = N[id]; if (!node) return;
+  setBg(node.bg);
+  if (node.choice){ showChoice(node); return; }
+  choicesEl.classList.remove("open");
+  /* speaker styling (background + text only, no character sprites) */
+  var who = node.who || "mono";
+  var names = { shigure:"白華 時雨", kusakabe:"草壁", mono:"――" };
+  nameplate.textContent = who==="mono" ? "　" : (names[who]||"　");
+  nameplate.className = "nameplate" + (who==="shigure"?" shigure":who==="kusakabe"?" kusakabe":" mono");
+  textBody.className = "text-body" + (who==="mono" ? " mono" : "");
+  state.backlog.push({ who: who==="shigure"?"白華時雨":who==="kusakabe"?"草壁":"（地の文）", text: node.text });
+  typeText(node.text);
+}
+function showChoice(node){
+  state.choicesMade++;
+  renderMeta();
+  $("choiceTitle").textContent = node.title;
+  var qEl = $("choiceQ"); if (qEl){ qEl.textContent = ""; qEl.style.display = "none"; }
+  choiceBtns.innerHTML = "";
+  node.options.forEach(function(opt){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "choice-btn";
+    var lbl = document.createElement("span"); lbl.className = "cb-label"; lbl.textContent = opt.label;
+    b.appendChild(lbl);
+    b.addEventListener("click", function(){
+      choicesEl.classList.remove("open");
+      state.backlog.push({ who:"選択", text: opt.label });
+      if (opt.gauge > 0){
+        state.gauge = Math.min(100, state.gauge + opt.gauge);
+        state.careCount++;
+        renderGauge("気遣いゲージ +" + opt.gauge);
+      } else {
+        renderGauge(null);
+      }
+      showNode(opt.next);
+    });
+    choiceBtns.appendChild(b);
+  });
+  finishType();
+  choicesEl.classList.add("open");
+}
+function advance(){
+  if (!state.started || state.ended) return;
+  if (choicesEl.classList.contains("open")) return;
+  if (state.typing){ finishType(); return; }
+  var node = N[state.nodeId];
+  if (node && node.next) showNode(node.next);
+}
+function showEnding(key){
+  state.ended = true;
+  state.endings[key] = true;
+  var e = ENDINGS[key];
+  $("endBadge").textContent = e.badge;
+  $("endBadge").className = "end-badge " + e.badgeClass;
+  $("endTitle").textContent = e.title;
+  $("endText").textContent = e.text;
+  $("endGauge").textContent = state.gauge;
+  $("endCare").textContent = state.careCount + "回";
+  var n = (state.endings.bad?1:0)+(state.endings.true?1:0)+(state.endings.normal?1:0);
+  $("endTotal").textContent = n + " / 3";
+  var endNames = { bad:"BAD END", "true":"TRUE END", normal:"NORMAL END" };
+  var missing = ["bad","true","normal"].filter(function(k){ return !state.endings[k]; });
+  var suffix = missing.length === 0
+    ? " これで全3エンディング到達です。時雨の物語を、すべて見届けました。"
+    : " 未到達のENDは " + missing.map(function(k){ return "「"+endNames[k]+"」"; }).join(" と ") + " です。";
+  $("endHint").textContent = e.hint + suffix;
+  $("endOverlay").classList.add("open");
+  $("stage").classList.add("locked");
+  renderMeta();
+}
+function startGame(){
+  BGM.start();
+  state.gauge = 0; state.careCount = 0; state.choicesMade = 0; state.backlog = []; state.ended = false; state.started = true;
+  $("titleOverlay").classList.remove("open");
+  $("endOverlay").classList.remove("open");
+  $("stage").classList.remove("locked");
+  renderGauge(null); renderMeta();
+  showNode("p1");
+}
+function toTitle(){
+  state.started = false; state.ended = false;
+  $("endOverlay").classList.remove("open");
+  $("titleOverlay").classList.add("open");
+  $("stage").classList.add("locked");
+  renderMeta();
+}
+
+/* ============ BGM : solo piano, slow & gentle (Web Audio, no audio file) ============ */
+/* Piano only — no xylophone, no percussion, nothing that pierces the ear.
+   A brand-new score: a slow 4/4 piece in F major at 72 BPM. The melody stays in
+   a low, warm register, notes are sparse with room to breathe, and every tone
+   passes through a low-pass filter with a soft attack so it sits quietly under
+   the text like a visual-novel BGM. 8 bars loop seamlessly; starts on first
+   user tap (autoplay-safe). */
+var BGM = (function(){
+  var ctx = null, master = null, timer = null, noiseBuf = null;
+  var enabled = true, playing = false;
+  var BPM = 72, SPB = 60 / BPM;           /* seconds per beat (quarter note) */
+  var BAR = SPB * 4, STEP = SPB / 2;      /* 4/4 time: 8 eighth-notes per bar */
+  var nextBarTime = 0, barIndex = 0;
+  /* per bar: low root (MIDI), chord tones for the left hand (MIDI),
+     melody (8 eighth-note slots, MIDI; 0 = rest). New score in F major:
+     F – Dm – Bb – C – F – Dm – Gm – C, melody kept low and sparse. */
+  var BARS = [
+    { root:41, chord:[53,57,60], mel:[69, 0,72, 0,74, 0,72, 0] },  /* F  : A . C . D . C . */
+    { root:38, chord:[50,53,57], mel:[69, 0,65, 0,69, 0, 0, 0] },  /* Dm : A . F . A . . . */
+    { root:46, chord:[58,62,65], mel:[70, 0,74, 0,77, 0,74, 0] },  /* Bb : Bb. D . F . D . */
+    { root:36, chord:[52,55,60], mel:[72, 0,67, 0,64, 0, 0, 0] },  /* C  : C . G . E . . . */
+    { root:41, chord:[53,57,60], mel:[65, 0,69, 0,72, 0,69, 0] },  /* F  : F . A . C . A . */
+    { root:38, chord:[50,53,57], mel:[74, 0,72, 0,69, 0,65, 0] },  /* Dm : D . C . A . F . */
+    { root:43, chord:[55,58,62], mel:[67, 0,70, 0,74, 0,70, 0] },  /* Gm : G . Bb. D . Bb. */
+    { root:36, chord:[52,55,60], mel:[72, 0, 0, 0,67, 0, 0, 0] }   /* C  : C . . . G . . . */
+  ];
+  function mf(m){ return 440 * Math.pow(2, (m - 69) / 12); }
+  function ensureCtx(){
+    if (ctx) return true;
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return false;
+    ctx = new AC();
+    master = ctx.createGain(); master.gain.value = 0.5;
+    var comp = ctx.createDynamicsCompressor();
+    master.connect(comp); comp.connect(ctx.destination);
+    var len = Math.floor(ctx.sampleRate * 0.3);
+    noiseBuf = ctx.createBuffer(1, len, ctx.sampleRate);
+    var d = noiseBuf.getChannelData(0);
+    for (var i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    return true;
+  }
+  function envGain(t, peak, decay){
+    var g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(Math.max(peak, 0.0002), t + 0.012);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + decay);
+    g.connect(master); return g;
+  }
+  /* One soft piano tone: a few gentle harmonics (nothing bright or metallic),
+     a slow attack, a long natural decay, and a low-pass filter that keeps the
+     top end round — no piercing partials like the old xylophone's. */
+  function piano(midi, t, vol, dur){
+    vol = vol || 1; dur = dur || 1.4;
+    var f = mf(midi);
+    var flt = ctx.createBiquadFilter();
+    flt.type = "lowpass"; flt.frequency.value = 1800; flt.Q.value = 0.3;
+    var g = ctx.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(Math.max(0.22 * vol, 0.0002), t + 0.018);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    flt.connect(g); g.connect(master);
+    var partials = [[1, 1], [2, 0.42], [3, 0.16], [4, 0.06]];
+    for (var i = 0; i < partials.length; i++){
+      var o = ctx.createOscillator(); o.type = "sine";
+      o.frequency.value = f * partials[i][0];
+      var og = ctx.createGain(); og.gain.value = partials[i][1];
+      o.connect(og); og.connect(flt);
+      o.start(t); o.stop(t + dur + 0.05);
+    }
+  }
+  function scheduleBar(bar, t0){
+    var s;
+    /* left hand: one low root that rings under the whole bar, plus a slow,
+       quiet arpeggio — everything piano, nothing else */
+    piano(bar.root, t0, 0.8, BAR * 0.95);
+    var lh = [0, 0, bar.chord[0], bar.chord[1], bar.chord[2], 0, bar.chord[1], 0];
+    for (s = 0; s < 8; s++){
+      if (lh[s]) piano(lh[s], t0 + s * STEP, 0.30, STEP * 2.4);
+    }
+    /* right hand: the sparse melody, each note left to fade on its own */
+    for (s = 0; s < 8; s++){
+      if (bar.mel[s]) piano(bar.mel[s], t0 + s * STEP, 0.75, STEP * 2.6);
+    }
+  }
+  function tick(){
+    if (!playing || !ctx) return;
+    while (nextBarTime < ctx.currentTime + 0.35){
+      scheduleBar(BARS[barIndex % BARS.length], nextBarTime);
+      nextBarTime += BAR; barIndex++;
+    }
+  }
+  function start(){
+    if (!enabled) return;
+    if (!ensureCtx()) return;
+    if (ctx.state === "suspended") ctx.resume();
+    if (playing) return;
+    playing = true; barIndex = 0;
+    nextBarTime = ctx.currentTime + 0.06;
+    tick();
+    timer = setInterval(tick, 120);
+  }
+  function stop(){
+    playing = false;
+    if (timer){ clearInterval(timer); timer = null; }
+    if (ctx) ctx.suspend();
+  }
+  function setEnabled(on){
+    enabled = on;
+    if (on){ start(); } else { stop(); }
+  }
+  return { start:start, stop:stop, setEnabled:setEnabled, isEnabled:function(){ return enabled; } };
+})();
+
+/* ============ wiring ============ */
+$("textbox").addEventListener("click", advance);
+$("advanceBtn").addEventListener("click", advance);
+document.addEventListener("keydown", function(ev){
+  if (ev.code === "Space" || ev.code === "Enter"){
+    if ($("howModal").classList.contains("open") || $("logModal").classList.contains("open")) return;
+    if ($("titleOverlay").classList.contains("open") || $("endOverlay").classList.contains("open")) return;
+    ev.preventDefault(); advance();
+  }
+});
+var bgmBtn = $("bgmBtn");
+function renderBgmBtn(){
+  var on = BGM.isEnabled();
+  bgmBtn.classList.toggle("is-on", on);
+  bgmBtn.setAttribute("aria-pressed", on ? "true" : "false");
+  bgmBtn.innerHTML = '<span class="bgm-note" aria-hidden="true">♪</span> BGM：' + (on ? "ON" : "OFF");
+}
+bgmBtn.addEventListener("click", function(){
+  BGM.setEnabled(!BGM.isEnabled());
+  renderBgmBtn();
+});
+$("startBtn").addEventListener("click", startGame);
+$("retryBtn").addEventListener("click", startGame);
+$("restartBtn").addEventListener("click", function(){ if (state.started || state.ended) startGame(); });
+$("toTitleBtn").addEventListener("click", toTitle);
+$("howBtn").addEventListener("click", function(){ $("howModal").classList.add("open"); });
+$("howClose").addEventListener("click", function(){ $("howModal").classList.remove("open"); });
+$("logBtn").addEventListener("click", function(){
+  var list = $("logList");
+  if (!state.backlog.length){ list.innerHTML = '<p style="color:var(--ink-soft); font-size:13.5px">まだ記録がありません。</p>'; }
+  else {
+    list.innerHTML = "";
+    state.backlog.forEach(function(item){
+      var d = document.createElement("div"); d.className = "log-item";
+      var w = document.createElement("div"); w.className = "who"; w.textContent = item.who;
+      var t = document.createElement("div"); t.className = "what"; t.textContent = item.text;
+      d.appendChild(w); d.appendChild(t); list.appendChild(d);
+    });
+  }
+  $("logModal").classList.add("open");
+});
+$("logClose").addEventListener("click", function(){ $("logModal").classList.remove("open"); });
+[$("howModal"), $("logModal")].forEach(function(m){
+  m.addEventListener("click", function(ev){ if (ev.target === m) m.classList.remove("open"); });
+});
+renderGauge(null); renderMeta();
+})();
+</script>
+</body>
+</html>
